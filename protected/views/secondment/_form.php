@@ -36,7 +36,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'paidia'); ?>
-		<?php echo $form->numberField($model,'paidia'); ?>
+		<?php echo $form->numberField($model,'paidia', array('size'=>2,'maxlength'=>2)); ?>
 		<?php echo $form->error($model,'paidia'); ?>
 	</div>
 
@@ -188,7 +188,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Καταχώρηση' : 'Αποθήκευση'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

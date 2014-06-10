@@ -3,8 +3,8 @@
 /* @var $model Secondment */
 
 $this->breadcrumbs=array(
-	'Secondments'=>array('index'),
-	'Create',
+	'Αιτήσεις Αποσπάσεων'=>array('index'),
+	'Καταχώρηση',
 );
 
 $this->menu=array(

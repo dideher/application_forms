@@ -66,21 +66,21 @@ class Secondment extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'oik_katastasi' => 'Oik Katastasi',
-			'paidia' => 'Paidia',
-			'eksosomatiki' => 'Eksosomatiki',
-			'ygeia_idios' => 'Ygeia Idios',
-			'ygeia_syzigos' => 'Ygeia Syzigos',
-			'ygeia_paidi' => 'Ygeia Paidi',
-			'ygeia_adelfos' => 'Ygeia Adelfos',
-			'entopiotita' => 'Entopiotita',
-			'synyphrethsh' => 'Synyphrethsh',
-			'spoudes' => 'Spoudes',
+			'id' => 'α/α',
+			'oik_katastasi' => 'Οικ. Κατάσταση',
+			'paidia' => 'Τέκνα',
+			'eksosomatiki' => 'Εξωσωματική',
+			'ygeia_idios' => 'Αιτούντως',
+			'ygeia_syzigos' => 'Συζήγου',
+			'ygeia_paidi' => 'Τέκνου',
+			'ygeia_adelfos' => 'Αδελφού',
+			'entopiotita' => 'Εντοπιότητα',
+			'synyphrethsh' => 'Συνηπηρέτηση',
+			'spoudes' => 'Σπουδές',
 			'goneis_dhmos' => 'Goneis Dhmos',
 			'goneis_ygeia' => 'Goneis Ygeia',
-			'protaireotita' => 'Protaireotita',
-			'parathrhseis' => 'Parathrhseis',
+			'protaireotita' => 'Κατά προταιρεότητα ?',
+			'parathrhseis' => 'Παρατηρήσεις',
 		);
 	}
 

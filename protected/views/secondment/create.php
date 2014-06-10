@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Secondment</h1>
+<h1>Καταχώρηση Αίτησης</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -13,9 +13,24 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 )); ?>
 
 <fieldset>
+
+  <legend>Ατομικά Στοιχεία<legend>
+
+    <div class="col-md-6 form-group">
+      <?php echo $form->uneditableRow($model->employee,'am'); ?>
+      <?php echo $form->uneditableRow($model->employee,'afm'); ?>
+    </div>
+
+    <div class="col-md-6 form-group">
+      <?php echo $form->uneditableRow($model->employee,'am'); ?>
+      <?php echo $form->uneditableRow($model->employee,'afm'); ?>
+    </div>
+    
+    <?php echo $form->uneditableRow($model->employee,'name'); ?>
+    <?php echo $form->uneditableRow($model->employee,'surname'); ?>
+
+
 	<legend>Οικογενειακή Κατάσταση</legend>
-		<div class="row">
-			<div class="col-md-1">
 		<?php echo $form->dropdownListRow($model,'oik_katastasi',array(
 			'ΑΓΓΑΜΟΣ'=>'Άγγαμος',
 			'ΕΓΓΑΜΟΣ'=>'Έγγαμος',
@@ -23,13 +38,9 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 			'ΣΕ ΧΗΡΕΙΑ ΜΕ ΑΝΗΛΙΚΟ'=>'Σε χηρεία με ανήλικο',
 			'ΜΟΝΟΓΟΝΕΪΚΗ'=>'Μονογονεϊκη'), array('hint'=>'Δηλώστε την οικογενειακή σας κατάσταση')); ?>
 		<?php echo $form->error($model,'oik_katastasi'); ?>
-		</div>
 
-		<div class="col-md-1">
-		<?php echo $form->textFieldRow($model,'paidia', array('size'=>2,'maxlength'=>2)); ?>
+  	<?php echo $form->textFieldRow($model,'paidia', array('size'=>2,'maxlength'=>2)); ?>
 		<?php echo $form->error($model,'paidia'); ?>
-	</div>
-	</div>
 
 		<legend>Λόγοι Υγείας</legend>
 

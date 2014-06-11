@@ -2,6 +2,7 @@
 
 class SecondmentController extends Controller
 {
+
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -63,6 +64,13 @@ class SecondmentController extends Controller
 	public function actionCreate()
 	{
 		$model=new Secondment;
+		$record=Employee::model()->findByAttributes(array(
+			'am'=>Yii::app()->user->getId(),
+			));
+		$model->employee_id = $record->am;
+
+
+		Yii::log(Yii::app()->user->getId());
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

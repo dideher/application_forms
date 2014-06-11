@@ -19,6 +19,10 @@
  * @property string $goneis_ygeia
  * @property string $protaireotita
  * @property string $parathrhseis
+ * @property integer $employee_id
+ *
+ * The followings are the available model relations:
+ * @property Employee $employee
  */
 class Secondment extends CActiveRecord
 {
@@ -38,14 +42,15 @@ class Secondment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('paidia, eksosomatiki', 'numerical', 'integerOnly'=>true),
+			array('employee_id', 'required'),
+			array('paidia, eksosomatiki, employee_id', 'numerical', 'integerOnly'=>true),
 			array('oik_katastasi', 'length', 'max'=>60),
 			array('ygeia_idios, ygeia_syzigos, ygeia_paidi, ygeia_adelfos, entopiotita, synyphrethsh, spoudes, goneis_dhmos, goneis_ygeia', 'length', 'max'=>15),
 			array('protaireotita', 'length', 'max'=>30),
 			array('parathrhseis', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, oik_katastasi, paidia, eksosomatiki, ygeia_idios, ygeia_syzigos, ygeia_paidi, ygeia_adelfos, entopiotita, synyphrethsh, spoudes, goneis_dhmos, goneis_ygeia, protaireotita, parathrhseis', 'safe', 'on'=>'search'),
+			array('id, oik_katastasi, paidia, eksosomatiki, ygeia_idios, ygeia_syzigos, ygeia_paidi, ygeia_adelfos, entopiotita, synyphrethsh, spoudes, goneis_dhmos, goneis_ygeia, protaireotita, parathrhseis, employee_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +62,7 @@ class Secondment extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'employee' => array(self::BELONGS_TO, 'Employee', 'employee_id'),
 		);
 	}
 
@@ -66,21 +72,22 @@ class Secondment extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'α/α',
-			'oik_katastasi' => 'Οικ. Κατάσταση',
-			'paidia' => 'Τέκνα',
-			'eksosomatiki' => 'Εξωσωματική',
-			'ygeia_idios' => 'Αιτούντως',
-			'ygeia_syzigos' => 'Συζήγου',
-			'ygeia_paidi' => 'Τέκνου',
-			'ygeia_adelfos' => 'Αδελφού',
-			'entopiotita' => 'Εντοπιότητα',
-			'synyphrethsh' => 'Συνηπηρέτηση',
-			'spoudes' => 'Σπουδές',
+			'id' => 'ID',
+			'oik_katastasi' => 'Oik Katastasi',
+			'paidia' => 'Paidia',
+			'eksosomatiki' => 'Eksosomatiki',
+			'ygeia_idios' => 'Ygeia Idios',
+			'ygeia_syzigos' => 'Ygeia Syzigos',
+			'ygeia_paidi' => 'Ygeia Paidi',
+			'ygeia_adelfos' => 'Ygeia Adelfos',
+			'entopiotita' => 'Entopiotita',
+			'synyphrethsh' => 'Synyphrethsh',
+			'spoudes' => 'Spoudes',
 			'goneis_dhmos' => 'Goneis Dhmos',
 			'goneis_ygeia' => 'Goneis Ygeia',
-			'protaireotita' => 'Κατά προταιρεότητα ?',
-			'parathrhseis' => 'Παρατηρήσεις',
+			'protaireotita' => 'Protaireotita',
+			'parathrhseis' => 'Parathrhseis',
+			'employee_id' => 'Employee',
 		);
 	}
 
@@ -117,6 +124,7 @@ class Secondment extends CActiveRecord
 		$criteria->compare('goneis_ygeia',$this->goneis_ygeia,true);
 		$criteria->compare('protaireotita',$this->protaireotita,true);
 		$criteria->compare('parathrhseis',$this->parathrhseis,true);
+		$criteria->compare('employee_id',$this->employee_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

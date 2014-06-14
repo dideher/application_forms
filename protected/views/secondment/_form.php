@@ -16,14 +16,23 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
   <legend>Ατομικά Στοιχεία<legend>
 
+  <!-- first column -->
   <div class="span4">
     <?php echo $form->uneditableRow($model->employee,'am'); ?>
-    <?php echo $form->uneditableRow($model->employee,'afm'); ?>
+    <?php echo $form->uneditableRow($model->employee,'father_name'); ?>
+
   </div>
 
+  <!-- second column -->
   <div class="span4">
     <?php echo $form->uneditableRow($model->employee,'name'); ?>
+    <?php echo $form->uneditableRow($model->employee,'specialization'); ?>
+  </div>
+
+  <!-- third column -->
+  <div class="span4">
     <?php echo $form->uneditableRow($model->employee,'surname'); ?>
+    <?php echo $form->uneditableRow($model->employee,'school_name'); ?>
   </div>
 
   <div class="span4">

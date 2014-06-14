@@ -9,6 +9,9 @@
  * @property string $surname
  * @property string $afm
  * @property integer $school_id
+ * @property string $father_name
+ * @property string $specialization
+ * @property string $school_name
  *
  * The followings are the available model relations:
  * @property Secondment[] $secondments
@@ -31,14 +34,15 @@ class Employee extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('am, name, surname', 'required'),
+			array('am, name, surname, specialization', 'required'),
 			array('am, school_id', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>30),
+			array('name, father_name, specialization', 'length', 'max'=>30),
 			array('surname', 'length', 'max'=>60),
 			array('afm', 'length', 'max'=>10),
+			array('school_name', 'length', 'max'=>40),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('am, name, surname, afm, school_id', 'safe', 'on'=>'search'),
+			array('am, name, surname, afm, school_id, father_name, specialization, school_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,6 +69,9 @@ class Employee extends CActiveRecord
 			'surname' => 'Surname',
 			'afm' => 'Afm',
 			'school_id' => 'School',
+			'father_name' => 'Father Name',
+			'specialization' => 'Specialization',
+			'school_name' => 'School Name',
 		);
 	}
 
@@ -91,6 +98,9 @@ class Employee extends CActiveRecord
 		$criteria->compare('surname',$this->surname,true);
 		$criteria->compare('afm',$this->afm,true);
 		$criteria->compare('school_id',$this->school_id);
+		$criteria->compare('father_name',$this->father_name,true);
+		$criteria->compare('specialization',$this->specialization,true);
+		$criteria->compare('school_name',$this->school_name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

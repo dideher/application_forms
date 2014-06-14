@@ -17,7 +17,7 @@ $this->breadcrumbs=array(
 
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'login-form',
-    'type'=>'vertical',
+  'type'=>'vertical',
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
@@ -26,15 +26,26 @@ $this->breadcrumbs=array(
 )); ?>
 
 	<p class="note">Τα πεδία με <span class="required">*</span> είναι υποχρεωτικά.</p>
+<div class="row-fluid">
+	<div class="span3">
+		<?php echo $form->textFieldRow($model,'am'); ?>
+		<?php echo $form->textFieldRow($model,'afm'); ?>
+	</div>
 
-	<?php echo $form->textFieldRow($model,'am'); ?>
-	<?php echo $form->textFieldRow($model,'afm'); ?>
-	<?php echo $form->textFieldRow($model,'namePrefix', array(
-		'hint'=>'Σημείωση : Τα τρία πρώτα γράμματα του ονόματος σας αρκούν',
-	)); ?>
-	<?php echo $form->textFieldRow($model,'surnamePrefix', array(
-		'hint'=>'Σημείωση : Τα τρία πρώτα γράμματα του επωνύμου σας αρκούν',
-	)); ?>
+	<div class="span6">
+		<?php echo $form->textFieldRow($model,'namePrefix', array(
+			'hint'=>'Σημείωση : Τα τρία πρώτα γράμματα του ονόματος σας αρκούν',
+		)); ?>
+		<?php echo $form->textFieldRow($model,'surnamePrefix', array(
+			'hint'=>'Σημείωση : Τα τρία πρώτα γράμματα του επωνύμου σας αρκούν',
+		)); ?>
+	</div>
+
+</div>
+
+
+
+
 
 
 	<div class="form-actions">

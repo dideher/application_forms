@@ -8,6 +8,10 @@ $this->pageTitle=Yii::app()->name;
     'heading'=>'Welcome to '.CHtml::encode(Yii::app()->name),
 )); ?>
 
+
+sdfsdfsdfsdf
+
+
 <p>Congratulations! You have successfully created your Yii application.</p>
 
 <?php $this->endWidget(); ?>

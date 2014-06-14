@@ -14,16 +14,25 @@
 
 <body>
 
-<?php $this->widget('bootstrap.widgets.TbNavbar',array(
+
+Display the full menu
+<?php if(!Yii::app()->user->isGuest):?>
+
+<?php endif?>
+
+<?php
+	$isGuest = Yii::app()->user->isGuest;
+	$this->widget('bootstrap.widgets.TbNavbar',array(
     'items'=>array(
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                array('label'=>'Contact', 'url'=>array('/site/contact')),
-                array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                array('label'=>'Κεντρική', 'url'=>array('/site/index'),'visible'=>!$isGuest),
+								array('label'=>'Νεα αίτηση', 'url'=>array('/secondment'),'visible'=>!$isGuest),
+                array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>!$isGuest),
+                array('label'=>'Επικοινωνία', 'url'=>array('/site/contact'), 'visible'=>!$isGuest),
+                array('label'=>'Σύνδεση', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Αποσύνδεση ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),
         ),
     ),

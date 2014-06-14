@@ -11,23 +11,24 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     'type'=>'vertical',
 		'htmlOptions'=>array('class'=>'well')
 )); ?>
-
+<div class="row-fluid">
 <fieldset>
 
   <legend>Ατομικά Στοιχεία<legend>
 
-    <div class="col-md-6 form-group">
-      <?php echo $form->uneditableRow($model->employee,'am'); ?>
-      <?php echo $form->uneditableRow($model->employee,'afm'); ?>
-    </div>
+  <div class="span4">
+    <?php echo $form->uneditableRow($model->employee,'am'); ?>
+    <?php echo $form->uneditableRow($model->employee,'afm'); ?>
+  </div>
 
-    <div class="col-md-6 form-group">
-      <?php echo $form->uneditableRow($model->employee,'am'); ?>
-      <?php echo $form->uneditableRow($model->employee,'afm'); ?>
-    </div>
-    
+  <div class="span4">
     <?php echo $form->uneditableRow($model->employee,'name'); ?>
     <?php echo $form->uneditableRow($model->employee,'surname'); ?>
+  </div>
+
+  <div class="span4">
+  </div>
+
 
 
 	<legend>Οικογενειακή Κατάσταση</legend>
@@ -44,22 +45,22 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 		<legend>Λόγοι Υγείας</legend>
 
+    <div class="span6">
 
 		<?php echo $form->checkBoxRow($model,'eksosomatiki'); ?>
-		<?php echo $form->error($model,'eksosomatiki'); ?>
 
-			<?php echo $form->dropdownListRow($model,'ygeia_idios',array(
+		<?php echo $form->dropdownListRow($model,'ygeia_idios',array(
 				'' => 'Επιλέξτε ποσοστό',
 				'50-66%'=>'50% με 66%',
 				'67-79%'=>'67% με 79%',
 				'80% κ άνω'=>'80% και άνω',
 			)); ?>
 			<?php echo $form->error($model,'ygeia_idios'); ?>
+    </div>
 
+    <div class="span6">
 
-			<?php echo $form->labelEx($model,'ygeia_syzigos'); ?>
-			<!-- <?php echo $form->textField($model,'ygeia_syzigos',array('size'=>15,'maxlength'=>15)); ?> -->
-			<?php echo $form->dropdownList($model,'ygeia_syzigos',array(
+			<?php echo $form->dropdownListRow($model,'ygeia_syzigos',array(
 				'' => 'Επιλέξτε ποσοστό',
 				'50-66%'=>'50% με 66%',
 				'67-79%'=>'67% με 79%',
@@ -67,9 +68,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 			)); ?>
 			<?php echo $form->error($model,'ygeia_syzigos'); ?>
 
-			<?php echo $form->labelEx($model,'ygeia_paidi'); ?>
-			<!-- <?php echo $form->textField($model,'ygeia_paidi',array('size'=>15,'maxlength'=>15)); ?> -->
-			<?php echo $form->dropdownList($model,'ygeia_paidi',array(
+			<?php echo $form->dropdownListRow($model,'ygeia_paidi',array(
 				'' => 'Επιλέξτε ποσοστό',
 				'50-66%'=>'50% με 66%',
 				'67-79%'=>'67% με 79%',
@@ -84,6 +83,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 				'67% κ άνω'=>'67% και άνω',
 			)); ?>
 			<?php echo $form->error($model,'ygeia_adelfos'); ?>
+
+    </div>
 
 	<legend>Εντοπιότητα</legend>
 
@@ -164,6 +165,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	<?php echo $form->error($model,'parathrhseis'); ?>
 
 </fieldset>
+</div>
 
 <div class="form-actions">
     <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=> $model->isNewRecord ? 'Καταχώρηση' : 'Αποθήκευση')); ?>
